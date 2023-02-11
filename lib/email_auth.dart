@@ -142,6 +142,7 @@ class EmailAuth {
         print("email-auth >> email ID provided is INVALID");
         return false;
       }
+
       /// Defaults to the test server (reverts) : if the remote server is provided
       if (this._server.isEmpty) {
         print(
