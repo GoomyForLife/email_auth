@@ -18,7 +18,7 @@ late String _finalEmail;
 /// This function will check if the provided email ID is valid or not
 bool _isEmail(String email) {
   String p =
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+      r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?');
   RegExp regExp = new RegExp(p);
   return regExp.hasMatch(email);
 }
@@ -136,6 +136,13 @@ class EmailAuth {
   /// Takes care of sending the OTP to the server.
   /// returns a Boolean.
   Future<bool> sendOtp(
+    {required String recipientMail, int otpLength = 6}) async {
+    try {
+      if (!_isEmail(recipientMail)) {
+        print("email-auth >> email ID provided is INVALID");
+        return false;
+      }
+
       {required String recipientMail, int otpLength = 6}) async
       /// Defaults to the test server (reverts) : if the remote server is provided
       if (this._server.isEmpty) {
