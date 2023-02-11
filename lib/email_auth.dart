@@ -136,13 +136,7 @@ class EmailAuth {
   /// Takes care of sending the OTP to the server.
   /// returns a Boolean.
   Future<bool> sendOtp(
-      {required String recipientMail, int otpLength = 6}) async {
-    try {
-      if (!_isEmail(recipientMail)) {
-        print("email-auth >> email ID provided is INVALID");
-        return false;
-      }
-
+      {required String recipientMail, int otpLength = 6}) async
       /// Defaults to the test server (reverts) : if the remote server is provided
       if (this._server.isEmpty) {
         print(
