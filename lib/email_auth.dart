@@ -6,7 +6,6 @@
 /// should follow the variable conventions as follows :
 /// var remoteServerConfig = {"server" : "serverUrl", "serverKey" : "Key generted from the email-auth-node package"}
 /// You can pass "remoteServerConfig" to the emailAuth instance.config() and generate them.
-
 import 'dart:async';
 import 'dart:convert' as convert;
 import 'package:flutter/cupertino.dart';
