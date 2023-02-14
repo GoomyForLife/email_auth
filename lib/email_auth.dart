@@ -18,7 +18,7 @@ late String _finalEmail;
 /// This function will check if the provided email ID is valid or not
 bool _isEmail(String email) {
   String p =
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+\.[a-zA-Z]+(\.[a-zA-Z])?+";
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
   RegExp regExp = new RegExp(p);
   return regExp.hasMatch(email);
 }
